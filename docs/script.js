@@ -30,3 +30,17 @@ var listContainer = document.getElementById('list-container');
 
 // Append the <ul> element to the container in the HTML
 listContainer.appendChild(ulElement);
+
+function fetchData() {
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            // Use the 'data' variable containing the JSON content
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error fetching JSON:', error);
+        });
+}
+
+fetchData();
