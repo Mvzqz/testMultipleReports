@@ -1,0 +1,54 @@
+
+
+
+name: Sharding
+
+on:
+  workflow_dispatch:
+    inputs:
+      useSharding:
+        description: 'Run with sharding'
+        required: false
+        default: true
+        type: boolean
+jobs:
+  test:
+    strategy:
+      matrix:
+        shard: ${{ fromJSON( '{ "false":["1/1"], "true":["1/4","2/4","3/4","4/4"] }')[inputs.useSharding] }}
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Install dependencies
+      run: npm ci
+    - name: Install playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Run playwright test
+      run: npx playwright test --shard=${{ matrix.shard }}
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: all-blob-reports
+        path: blob-report
+        retention-days: 1
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: vpn-log
+        path: vpn-log/
+        retention-days: 1
+  reports:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    needs: [test]
+    uses: ./.github/workflows/reporting.yml
+    with:
+      test: 'this is a test'
