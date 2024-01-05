@@ -4,7 +4,7 @@ console.log("test log")
 function createList(jsonData) {
   var ulElement = document.createElement('ul');
   
-  jsonData.forEach(function(item) {
+  jsonData.reports.forEach(function(item) {
 
     var liElement = document.createElement('li');
     var aElement = document.createElement('a');
