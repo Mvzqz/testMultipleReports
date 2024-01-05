@@ -49,7 +49,6 @@ jobs:
     - name: Upload HTML Report
       uses: actions/upload-artifact@v3
       with:
-        name: docs/html-report-${{ github.run_number	}}
-        path: playwright-report
+        name: html-report-${{ github.run_number	}}
+        path: docs
         retention-days: 1
-    
