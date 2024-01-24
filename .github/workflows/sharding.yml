@@ -35,7 +35,7 @@ jobs:
       if: always()
       with:
         name: all-blob-reports
-        path: blob-report8
+        path: blob-report
         retention-days: 1
   test2:
     needs: [test]
