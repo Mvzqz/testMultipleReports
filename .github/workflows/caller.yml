@@ -26,6 +26,6 @@ jobs:
       pages: write
       id-token: write
     with:
-      boolean: false
-      string: ${{github.event.inputs.string}}
-      number:  ${{github.event.inputs.number}}
+      boolean1: false
+      string1: ${{github.event.inputs.string}}
+      number1:  ${{github.event.inputs.number}}
