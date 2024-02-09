@@ -1,0 +1,31 @@
+name: Caller
+
+on:
+  workflow_dispatch:
+    inputs:
+      boolean:
+        description: 'Boolean'
+        required: false
+        default: false
+        type: boolean
+      string:
+        description: 'String'
+        required: false
+        type: string
+        default: 'string'
+      number:
+        description: 'Number'
+        required: false
+        type: number
+        default: 1
+jobs:
+  test:
+    uses: ./.github/workflows/execution.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    with:
+      boolean: ${{inputs.boolean}}
+      string: ${{inputs.string}}
+      number:  inputs.number
