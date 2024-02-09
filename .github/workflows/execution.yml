@@ -3,17 +3,17 @@ name: Execution
 on:
   workflow_call:
     inputs:
-      boolean:
+      boolean1:
         description: 'Boolean'
         required: false
         default: false
         type: boolean
-      string:
+      string1:
         description: 'String'
         required: false
         type: string
         default: 'string'
-      number:
+      number1:
         description: 'Number'
         required: false
         type: string
@@ -26,9 +26,9 @@ jobs:
       - name: generate grep
         id: set_grep
         run: |
-          boolean=${{ github.event.inputs.boolean }}
-          string=${{ github.event.inputs.string }}
-          number=${{ github.event.inputs.number }}
+          boolean=${{ github.event.inputs.boolean1 }}
+          string=${{ github.event.inputs.string1 }}
+          number=${{ github.event.inputs.number1 }}
 
           echo "boolean: [ ${boolean} ] ( ${{ github.event.inputs.boolean }} )"
           echo "string: [ ${string} ] ( ${{ github.event.inputs.string }} )"
