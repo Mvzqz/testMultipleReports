@@ -26,9 +26,9 @@ jobs:
       - name: generate grep
         id: set_grep
         run: |
-          boolean=${{ github.event.inputs.boolean1 }}
-          string=${{ github.event.inputs.string1 }}
-          number=${{ github.event.inputs.number1 }}
+          boolean=${{ inputs.boolean1 }}
+          string=${{ inputs.string1 }}
+          number=${{ inputs.number1 }}
 
           echo "boolean: [ ${boolean} ] ( ${{ github.event.inputs.boolean }} )"
           echo "string: [ ${string} ] ( ${{ github.event.inputs.string }} )"
