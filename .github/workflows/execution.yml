@@ -30,7 +30,7 @@ jobs:
           string=${{ github.event.inputs.string }}
           number=${{ github.event.inputs.number }}
 
-          echo "boolean: [ ${boolean} ] ( ${{ github.event.inputs.boolean }} )"
+          echo "boolean: [ ${boolean} ] ( ${{ github.event.inputs.boolean }} )  input.boolean"
           echo "string: [ ${string} ] ( ${{ github.event.inputs.string }} )"
           echo "number: [ ${number} ] ( ${{ github.event.inputs.number }} )"
 
