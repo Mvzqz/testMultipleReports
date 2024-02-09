@@ -1,0 +1,37 @@
+name: Execution
+
+on:
+  workflow_call:
+    inputs:
+      boolean:
+        description: 'Boolean'
+        required: false
+        default: false
+        type: boolean
+      string:
+        description: 'String'
+        required: false
+        type: string
+        default: 'string'
+      number:
+        description: 'Number'
+        required: false
+        type: number
+        default: 1
+jobs:
+  print_inputs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: generate grep
+        id: set_grep
+        run: |
+          boolean=${{ github.event.inputs.boolean }}
+          string=${{ github.event.inputs.string }}
+          number=${{ github.event.inputs.number }}
+
+          echo "boolean: [ ${boolean} ] ( ${{ github.event.inputs.boolean }} )"
+          echo "string: [ ${string} ] ( ${{ github.event.inputs.string }} )"
+          echo "number: [ ${number} ] ( ${{ github.event.inputs.number }} )"
+
+
