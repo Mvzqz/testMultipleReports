@@ -26,6 +26,6 @@ jobs:
       pages: write
       id-token: write
     with:
-      boolean: ${{inputs.string == 'String'}}
+      boolean: false
       string: ${{inputs.string}}
       number:  ${{inputs.number}}
