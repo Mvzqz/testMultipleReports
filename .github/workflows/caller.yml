@@ -28,4 +28,4 @@ jobs:
     with:
       boolean: ${{inputs.boolean}}
       string: ${{inputs.string}}
-      number:  inputs.number
+      number:  ${{inputs.number}}
