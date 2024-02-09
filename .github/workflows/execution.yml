@@ -16,8 +16,8 @@ on:
       number:
         description: 'Number'
         required: false
-        type: number
-        default: 1
+        type: string
+        default: '1'
 jobs:
   print_inputs:
     runs-on: ubuntu-latest
