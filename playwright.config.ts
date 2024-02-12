@@ -2,7 +2,7 @@ import { defineConfig } from "@playwright/test";
 
 
 export default defineConfig({
-    testDir:'./tests',
+    testDir:'./test',
     reporter:[
         ['blob'],
         ['line'],
