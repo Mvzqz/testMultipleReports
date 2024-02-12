@@ -50,5 +50,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: html-report-${{ github.run_number	}}
-        path: docs
+        path: playwright-report
         retention-days: 1
