@@ -52,3 +52,8 @@ jobs:
         name: html-report-${{ github.run_number	}}
         path: playwright-report
         retention-days: 1
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
+
