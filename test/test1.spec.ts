@@ -1,19 +1,7 @@
 import {test, expect,} from '@playwright/test'
 
-test.afterAll(async()=>{
-const users = ["user1", user2]    
-console.log('RUNING AFTER ALL')
-  try{
-    fs.writeFileSync('./utils/create-users/output/users.json', JSON.stringify(users))
-  }
-  catch(error){
-    console.error('Error writing to the file:', error);
-  }
-  
-})
-
-
-    test(`test vpn2`, async({ page }) => {
+for (let i = 0; i < 10; i++) {
+  test(`test ${i}`, async({ page }) => {
         test.slow()
         await page.goto('https://www.whatismyip.com')
 
@@ -24,3 +12,4 @@ console.log('RUNING AFTER ALL')
 
         await expect(page.locator('#geo')).toContainText('US')
     })
+}
