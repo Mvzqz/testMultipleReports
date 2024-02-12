@@ -38,6 +38,12 @@ jobs:
         name: all-blob-reports
         path: blob-report
         retention-days: 1
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: all-html-reports
+        path: playwright-report
+        retention-days: 1
   reports:
     permissions:
       contents: read
