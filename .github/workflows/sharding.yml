@@ -21,9 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: 18
     - name: Install dependencies
@@ -32,16 +32,16 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run playwright test
       run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: all-blob-reports
+        name: all-blob-reports${{matrix.shardIndex}}
         path: blob-report
         retention-days: 1
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: all-html-reports
+        name: all-html-reports${{matrix.shardIndex}}
         path: playwright-report
         retention-days: 1
   reports:
