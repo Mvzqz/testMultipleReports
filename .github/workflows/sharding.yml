@@ -36,7 +36,7 @@ jobs:
       if: always()
       with:
         name: all-blob-reports${{matrix.shardIndex}}
-        path: blob-report/report-${{matrix.shardIndex}}.jsonl
+        path: blob-report/
         retention-days: 1
   reports:
     permissions:
