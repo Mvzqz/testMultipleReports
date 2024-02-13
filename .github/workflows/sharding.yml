@@ -45,6 +45,7 @@ jobs:
       pages: write
       id-token: write
     needs: [test]
+    if: always()
     uses: ./.github/workflows/reporting.yml
     with:
       test: 'this is a test'
