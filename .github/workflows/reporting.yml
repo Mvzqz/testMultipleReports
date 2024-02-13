@@ -40,8 +40,8 @@ jobs:
     - name: Download blob reports from Github actions 
       uses: actions/download-artifact@v4
       with:
-        name: all-blob-reports
-        path: all-blob-reports1
+        name: all-blob-reports1
+        path: all-blob-reports
 
     - name: Merge into HTML report
       run: npx playwright merge-reports --reporter html ./all-blob-reports
