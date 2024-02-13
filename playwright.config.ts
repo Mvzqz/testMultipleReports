@@ -5,8 +5,7 @@ export default defineConfig({
     testDir:'./test',
     reporter:[
         ['blob'],
-        ['line'],
-        ['html']
+        ['line']
     ],
     use:{
         trace:'on'
